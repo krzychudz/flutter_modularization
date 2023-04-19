@@ -1,0 +1,13 @@
+name: bloc_screen
+description: A new brick created with the Mason CLI.
+version: 0.1.0+1
+
+environment:
+  mason: ">=0.1.0-dev.49 <0.1.0"
+
+vars:
+  filename:
+    type: string
+    description: widget name
+    default: bloc_screen
+    prompt: Provide a screen name?
