@@ -1,16 +1,13 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
 class DashboardView extends StatelessWidget {
-  const DashboardView({super.key});
+  const DashboardView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Dashboard Screen'),
-        ),
-        body: Column(
-          children: [],
-        ));
+      appBar: AppBar(title: Text("dashboard",),),
+      body: Center(child: Text("dashboard",)),
+    );
   }
 }
