@@ -13,7 +13,11 @@ import 'package:chopper/chopper.dart' as _i3;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../../network/api_client.dart' as _i5;
+import '../../core-data/repositories/currency_repository/currency_repository.dart'
+    as _i6;
+import '../../core-data/repositories/currency_repository/currency_repository_interface.dart'
+    as _i5;
+import '../../network/api_client.dart' as _i7;
 import '../../network/services/currencies/currencies_service.dart' as _i4;
 
 extension GetItInjectableX on _i1.GetIt {
@@ -29,10 +33,12 @@ extension GetItInjectableX on _i1.GetIt {
     );
     final apiClientModule = _$ApiClientModule();
     gh.singleton<_i3.ChopperClient>(apiClientModule.chopperClient);
-    gh.singleton<_i4.CurrenciesService>(
-        _i4.CurrenciesService.create(gh<_i3.ChopperClient>()));
+    gh.singleton<_i4.CurrencyService>(
+        _i4.CurrencyService.create(gh<_i3.ChopperClient>()));
+    gh.singleton<_i5.CurrencyRepositoryInterface>(
+        _i6.CurrencyRepository(gh<_i4.CurrencyService>()));
     return this;
   }
 }
 
-class _$ApiClientModule extends _i5.ApiClientModule {}
+class _$ApiClientModule extends _i7.ApiClientModule {}

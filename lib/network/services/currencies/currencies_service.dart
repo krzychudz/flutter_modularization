@@ -6,10 +6,10 @@ part 'currencies_service.chopper.dart';
 
 @Singleton()
 @ChopperApi()
-abstract class CurrenciesService extends ChopperService {
+abstract class CurrencyService extends ChopperService {
   @factoryMethod
-  static CurrenciesService create(ChopperClient? apiClient) =>
-      _$CurrenciesService(apiClient);
+  static CurrencyService create(ChopperClient? apiClient) =>
+      _$CurrencyService(apiClient);
 
   @Get(path: '/assets')
   Future<Response<AllCurrenciesResponse>> getCurrencies();
