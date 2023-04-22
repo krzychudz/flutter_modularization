@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
-import "package:flutter_modularization/core-data/extenasion/string_number.dart";
+import 'package:flutter_modularization/core-data/extension/string_number.dart';
 import "package:flutter_modularization/data/models/currency/currency.dart";
 import "package:flutter_modularization/feature-dashboard/dashboard_screen/bloc/dashboard_screen_cubit.dart";
 import "package:flutter_modularization/feature-dashboard/dashboard_screen/bloc/dashboard_screen_state.dart";
@@ -60,22 +60,36 @@ class CurrenciesList extends StatelessWidget {
                 children: [
                   SymbolName(symbol: currentCurrency.symbol ?? 'X'),
                   const SizedBox(width: 16),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        currentCurrency.name ?? 'Unknown',
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                      const SizedBox(height: 1),
-                      Text('${currentCurrency.priceUsd?.fixedNumber(2)} USD'),
-                    ],
-                  ),
+                  InfoSection(currentCurrency: currentCurrency),
                 ],
               ),
             ),
           );
         });
+  }
+}
+
+class InfoSection extends StatelessWidget {
+  const InfoSection({
+    super.key,
+    required this.currentCurrency,
+  });
+
+  final Currency currentCurrency;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          currentCurrency.name ?? 'Unknown',
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
+        const SizedBox(height: 1),
+        Text('${currentCurrency.priceUsd?.fixedNumber(2)} USD'),
+      ],
+    );
   }
 }
 
