@@ -20,7 +20,12 @@ DashboardScreenState _$DashboardScreenStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DashboardScreenState {
+  List<Currency>? get currencies => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $DashboardScreenStateCopyWith<DashboardScreenState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -28,6 +33,8 @@ abstract class $DashboardScreenStateCopyWith<$Res> {
   factory $DashboardScreenStateCopyWith(DashboardScreenState value,
           $Res Function(DashboardScreenState) then) =
       _$DashboardScreenStateCopyWithImpl<$Res, DashboardScreenState>;
+  @useResult
+  $Res call({List<Currency>? currencies});
 }
 
 /// @nodoc
@@ -40,13 +47,30 @@ class _$DashboardScreenStateCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? currencies = freezed,
+  }) {
+    return _then(_value.copyWith(
+      currencies: freezed == currencies
+          ? _value.currencies
+          : currencies // ignore: cast_nullable_to_non_nullable
+              as List<Currency>?,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$_DashboardScreenStateCopyWith<$Res> {
+abstract class _$$_DashboardScreenStateCopyWith<$Res>
+    implements $DashboardScreenStateCopyWith<$Res> {
   factory _$$_DashboardScreenStateCopyWith(_$_DashboardScreenState value,
           $Res Function(_$_DashboardScreenState) then) =
       __$$_DashboardScreenStateCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<Currency>? currencies});
 }
 
 /// @nodoc
@@ -56,30 +80,65 @@ class __$$_DashboardScreenStateCopyWithImpl<$Res>
   __$$_DashboardScreenStateCopyWithImpl(_$_DashboardScreenState _value,
       $Res Function(_$_DashboardScreenState) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? currencies = freezed,
+  }) {
+    return _then(_$_DashboardScreenState(
+      currencies: freezed == currencies
+          ? _value._currencies
+          : currencies // ignore: cast_nullable_to_non_nullable
+              as List<Currency>?,
+    ));
+  }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$_DashboardScreenState implements _DashboardScreenState {
-  _$_DashboardScreenState();
+  _$_DashboardScreenState({final List<Currency>? currencies})
+      : _currencies = currencies;
 
   factory _$_DashboardScreenState.fromJson(Map<String, dynamic> json) =>
       _$$_DashboardScreenStateFromJson(json);
 
+  final List<Currency>? _currencies;
+  @override
+  List<Currency>? get currencies {
+    final value = _currencies;
+    if (value == null) return null;
+    if (_currencies is EqualUnmodifiableListView) return _currencies;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   String toString() {
-    return 'DashboardScreenState()';
+    return 'DashboardScreenState(currencies: $currencies)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_DashboardScreenState);
+        (other.runtimeType == runtimeType &&
+            other is _$_DashboardScreenState &&
+            const DeepCollectionEquality()
+                .equals(other._currencies, _currencies));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_currencies));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_DashboardScreenStateCopyWith<_$_DashboardScreenState> get copyWith =>
+      __$$_DashboardScreenStateCopyWithImpl<_$_DashboardScreenState>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -90,8 +149,16 @@ class _$_DashboardScreenState implements _DashboardScreenState {
 }
 
 abstract class _DashboardScreenState implements DashboardScreenState {
-  factory _DashboardScreenState() = _$_DashboardScreenState;
+  factory _DashboardScreenState({final List<Currency>? currencies}) =
+      _$_DashboardScreenState;
 
   factory _DashboardScreenState.fromJson(Map<String, dynamic> json) =
       _$_DashboardScreenState.fromJson;
+
+  @override
+  List<Currency>? get currencies;
+  @override
+  @JsonKey(ignore: true)
+  _$$_DashboardScreenStateCopyWith<_$_DashboardScreenState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
