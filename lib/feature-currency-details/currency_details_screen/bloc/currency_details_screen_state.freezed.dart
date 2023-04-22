@@ -21,7 +21,15 @@ CurrencyDetailsScreenState _$CurrencyDetailsScreenStateFromJson(
 
 /// @nodoc
 mixin _$CurrencyDetailsScreenState {
+  Currency? get currencyDetails => throw _privateConstructorUsedError;
+  List<PriceHistory>? get priceHistory => throw _privateConstructorUsedError;
+  List<ExchangeMarket>? get exchangeMarkets =>
+      throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CurrencyDetailsScreenStateCopyWith<CurrencyDetailsScreenState>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -30,6 +38,13 @@ abstract class $CurrencyDetailsScreenStateCopyWith<$Res> {
           $Res Function(CurrencyDetailsScreenState) then) =
       _$CurrencyDetailsScreenStateCopyWithImpl<$Res,
           CurrencyDetailsScreenState>;
+  @useResult
+  $Res call(
+      {Currency? currencyDetails,
+      List<PriceHistory>? priceHistory,
+      List<ExchangeMarket>? exchangeMarkets});
+
+  $CurrencyCopyWith<$Res>? get currencyDetails;
 }
 
 /// @nodoc
@@ -42,14 +57,59 @@ class _$CurrencyDetailsScreenStateCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? currencyDetails = freezed,
+    Object? priceHistory = freezed,
+    Object? exchangeMarkets = freezed,
+  }) {
+    return _then(_value.copyWith(
+      currencyDetails: freezed == currencyDetails
+          ? _value.currencyDetails
+          : currencyDetails // ignore: cast_nullable_to_non_nullable
+              as Currency?,
+      priceHistory: freezed == priceHistory
+          ? _value.priceHistory
+          : priceHistory // ignore: cast_nullable_to_non_nullable
+              as List<PriceHistory>?,
+      exchangeMarkets: freezed == exchangeMarkets
+          ? _value.exchangeMarkets
+          : exchangeMarkets // ignore: cast_nullable_to_non_nullable
+              as List<ExchangeMarket>?,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CurrencyCopyWith<$Res>? get currencyDetails {
+    if (_value.currencyDetails == null) {
+      return null;
+    }
+
+    return $CurrencyCopyWith<$Res>(_value.currencyDetails!, (value) {
+      return _then(_value.copyWith(currencyDetails: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$_CurrencyDetailsScreenStateCopyWith<$Res> {
+abstract class _$$_CurrencyDetailsScreenStateCopyWith<$Res>
+    implements $CurrencyDetailsScreenStateCopyWith<$Res> {
   factory _$$_CurrencyDetailsScreenStateCopyWith(
           _$_CurrencyDetailsScreenState value,
           $Res Function(_$_CurrencyDetailsScreenState) then) =
       __$$_CurrencyDetailsScreenStateCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {Currency? currencyDetails,
+      List<PriceHistory>? priceHistory,
+      List<ExchangeMarket>? exchangeMarkets});
+
+  @override
+  $CurrencyCopyWith<$Res>? get currencyDetails;
 }
 
 /// @nodoc
@@ -61,31 +121,98 @@ class __$$_CurrencyDetailsScreenStateCopyWithImpl<$Res>
       _$_CurrencyDetailsScreenState _value,
       $Res Function(_$_CurrencyDetailsScreenState) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? currencyDetails = freezed,
+    Object? priceHistory = freezed,
+    Object? exchangeMarkets = freezed,
+  }) {
+    return _then(_$_CurrencyDetailsScreenState(
+      currencyDetails: freezed == currencyDetails
+          ? _value.currencyDetails
+          : currencyDetails // ignore: cast_nullable_to_non_nullable
+              as Currency?,
+      priceHistory: freezed == priceHistory
+          ? _value._priceHistory
+          : priceHistory // ignore: cast_nullable_to_non_nullable
+              as List<PriceHistory>?,
+      exchangeMarkets: freezed == exchangeMarkets
+          ? _value._exchangeMarkets
+          : exchangeMarkets // ignore: cast_nullable_to_non_nullable
+              as List<ExchangeMarket>?,
+    ));
+  }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$_CurrencyDetailsScreenState implements _CurrencyDetailsScreenState {
-  _$_CurrencyDetailsScreenState();
+  _$_CurrencyDetailsScreenState(
+      {this.currencyDetails,
+      final List<PriceHistory>? priceHistory,
+      final List<ExchangeMarket>? exchangeMarkets})
+      : _priceHistory = priceHistory,
+        _exchangeMarkets = exchangeMarkets;
 
   factory _$_CurrencyDetailsScreenState.fromJson(Map<String, dynamic> json) =>
       _$$_CurrencyDetailsScreenStateFromJson(json);
 
   @override
+  final Currency? currencyDetails;
+  final List<PriceHistory>? _priceHistory;
+  @override
+  List<PriceHistory>? get priceHistory {
+    final value = _priceHistory;
+    if (value == null) return null;
+    if (_priceHistory is EqualUnmodifiableListView) return _priceHistory;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<ExchangeMarket>? _exchangeMarkets;
+  @override
+  List<ExchangeMarket>? get exchangeMarkets {
+    final value = _exchangeMarkets;
+    if (value == null) return null;
+    if (_exchangeMarkets is EqualUnmodifiableListView) return _exchangeMarkets;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
   String toString() {
-    return 'CurrencyDetailsScreenState()';
+    return 'CurrencyDetailsScreenState(currencyDetails: $currencyDetails, priceHistory: $priceHistory, exchangeMarkets: $exchangeMarkets)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CurrencyDetailsScreenState);
+            other is _$_CurrencyDetailsScreenState &&
+            (identical(other.currencyDetails, currencyDetails) ||
+                other.currencyDetails == currencyDetails) &&
+            const DeepCollectionEquality()
+                .equals(other._priceHistory, _priceHistory) &&
+            const DeepCollectionEquality()
+                .equals(other._exchangeMarkets, _exchangeMarkets));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      currencyDetails,
+      const DeepCollectionEquality().hash(_priceHistory),
+      const DeepCollectionEquality().hash(_exchangeMarkets));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CurrencyDetailsScreenStateCopyWith<_$_CurrencyDetailsScreenState>
+      get copyWith => __$$_CurrencyDetailsScreenStateCopyWithImpl<
+          _$_CurrencyDetailsScreenState>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -97,8 +224,23 @@ class _$_CurrencyDetailsScreenState implements _CurrencyDetailsScreenState {
 
 abstract class _CurrencyDetailsScreenState
     implements CurrencyDetailsScreenState {
-  factory _CurrencyDetailsScreenState() = _$_CurrencyDetailsScreenState;
+  factory _CurrencyDetailsScreenState(
+          {final Currency? currencyDetails,
+          final List<PriceHistory>? priceHistory,
+          final List<ExchangeMarket>? exchangeMarkets}) =
+      _$_CurrencyDetailsScreenState;
 
   factory _CurrencyDetailsScreenState.fromJson(Map<String, dynamic> json) =
       _$_CurrencyDetailsScreenState.fromJson;
+
+  @override
+  Currency? get currencyDetails;
+  @override
+  List<PriceHistory>? get priceHistory;
+  @override
+  List<ExchangeMarket>? get exchangeMarkets;
+  @override
+  @JsonKey(ignore: true)
+  _$$_CurrencyDetailsScreenStateCopyWith<_$_CurrencyDetailsScreenState>
+      get copyWith => throw _privateConstructorUsedError;
 }
