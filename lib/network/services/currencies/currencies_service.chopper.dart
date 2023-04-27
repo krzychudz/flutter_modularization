@@ -40,7 +40,7 @@ class _$CurrencyService extends CurrencyService {
 
   @override
   Future<Response<PriceHistoryResponse>> getPriceHistory(String currencyId) {
-    final Uri $url = Uri.parse('/assets/${currencyId}/history');
+    final Uri $url = Uri.parse('/assets/${currencyId}/history?interval=m15');
     final Request $request = Request(
       'GET',
       $url,

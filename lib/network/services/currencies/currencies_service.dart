@@ -21,7 +21,7 @@ abstract class CurrencyService extends ChopperService {
   Future<Response<CurrencyResponse>> getCurrency(
       @Path('currencyId') String currencyId);
 
-  @Get(path: '/assets/{currencyId}/history')
+  @Get(path: '/assets/{currencyId}/history?interval=m15')
   Future<Response<PriceHistoryResponse>> getPriceHistory(
       @Path('currencyId') String currencyId);
 

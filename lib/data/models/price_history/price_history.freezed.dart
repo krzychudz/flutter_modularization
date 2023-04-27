@@ -20,8 +20,8 @@ PriceHistory _$PriceHistoryFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PriceHistory {
-  double get price => throw _privateConstructorUsedError;
-  DateTime get time => throw _privateConstructorUsedError;
+  double? get price => throw _privateConstructorUsedError;
+  int get time => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $PriceHistoryCopyWith<$Res> {
           PriceHistory value, $Res Function(PriceHistory) then) =
       _$PriceHistoryCopyWithImpl<$Res, PriceHistory>;
   @useResult
-  $Res call({double price, DateTime time});
+  $Res call({double? price, int time});
 }
 
 /// @nodoc
@@ -51,18 +51,18 @@ class _$PriceHistoryCopyWithImpl<$Res, $Val extends PriceHistory>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? price = null,
+    Object? price = freezed,
     Object? time = null,
   }) {
     return _then(_value.copyWith(
-      price: null == price
+      price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as int,
     ) as $Val);
   }
 }
@@ -75,7 +75,7 @@ abstract class _$$_PriceHistoryCopyWith<$Res>
       __$$_PriceHistoryCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({double price, DateTime time});
+  $Res call({double? price, int time});
 }
 
 /// @nodoc
@@ -89,18 +89,18 @@ class __$$_PriceHistoryCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? price = null,
+    Object? price = freezed,
     Object? time = null,
   }) {
     return _then(_$_PriceHistory(
-      price: null == price
+      price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as int,
     ));
   }
 }
@@ -108,15 +108,15 @@ class __$$_PriceHistoryCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PriceHistory implements _PriceHistory {
-  _$_PriceHistory({required this.price, required this.time});
+  _$_PriceHistory({this.price, required this.time});
 
   factory _$_PriceHistory.fromJson(Map<String, dynamic> json) =>
       _$$_PriceHistoryFromJson(json);
 
   @override
-  final double price;
+  final double? price;
   @override
-  final DateTime time;
+  final int time;
 
   @override
   String toString() {
@@ -151,17 +151,16 @@ class _$_PriceHistory implements _PriceHistory {
 }
 
 abstract class _PriceHistory implements PriceHistory {
-  factory _PriceHistory(
-      {required final double price,
-      required final DateTime time}) = _$_PriceHistory;
+  factory _PriceHistory({final double? price, required final int time}) =
+      _$_PriceHistory;
 
   factory _PriceHistory.fromJson(Map<String, dynamic> json) =
       _$_PriceHistory.fromJson;
 
   @override
-  double get price;
+  double? get price;
   @override
-  DateTime get time;
+  int get time;
   @override
   @JsonKey(ignore: true)
   _$$_PriceHistoryCopyWith<_$_PriceHistory> get copyWith =>

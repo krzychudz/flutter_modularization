@@ -19,9 +19,7 @@ class CurrencyDetailsScreen extends StatelessWidget {
       create: (context) => CurrencyDetailsScreenCubit(
         getIt.get<CurrencyRepositoryInterface>(),
       )..init(currencyId),
-      child: CurrencyDetailsView(
-        currencyId: currencyId,
-      ),
+      child: const CurrencyDetailsView(),
     );
   }
 }

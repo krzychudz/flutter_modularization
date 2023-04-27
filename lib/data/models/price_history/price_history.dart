@@ -6,8 +6,8 @@ part 'price_history.g.dart';
 @freezed
 class PriceHistory with _$PriceHistory {
   factory PriceHistory({
-    required double price,
-    required DateTime time,
+    double? price,
+    required int time,
   }) = _PriceHistory;
 
   factory PriceHistory.fromJson(Map<String, dynamic> json) =>

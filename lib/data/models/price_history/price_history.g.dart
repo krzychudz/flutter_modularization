@@ -8,12 +8,12 @@ part of 'price_history.dart';
 
 _$_PriceHistory _$$_PriceHistoryFromJson(Map<String, dynamic> json) =>
     _$_PriceHistory(
-      price: (json['price'] as num).toDouble(),
-      time: DateTime.parse(json['time'] as String),
+      price: (json['price'] as num?)?.toDouble(),
+      time: json['time'] as int,
     );
 
 Map<String, dynamic> _$$_PriceHistoryToJson(_$_PriceHistory instance) =>
     <String, dynamic>{
       'price': instance.price,
-      'time': instance.time.toIso8601String(),
+      'time': instance.time,
     };
