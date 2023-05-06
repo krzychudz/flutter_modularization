@@ -4,6 +4,7 @@ import "package:flutter_modularization/core-data/extension/string_number.dart";
 import "package:flutter_modularization/data/models/exchange_market/exchange_market.dart";
 import "package:flutter_modularization/feature-currency-details/currency_details_screen/bloc/currency_details_screen_cubit.dart";
 import "package:flutter_modularization/feature-currency-details/currency_details_screen/bloc/currency_details_screen_state.dart";
+import "package:go_router/go_router.dart";
 
 class CurrencyDetailsView extends StatelessWidget {
   const CurrencyDetailsView({Key? key}) : super(key: key);
@@ -43,20 +44,21 @@ class CurrencyMarketsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CurrencyDetailsScreenCubit, CurrencyDetailsScreenState>(
-        buildWhen: (previous, current) =>
-            previous.exchangeMarkets != current.exchangeMarkets,
-        builder: (context, state) {
-          return state.exchangeMarkets == null
-              ? const ProgressIndicator()
-              : SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    childCount: state.exchangeMarkets?.length,
-                    (context, index) => MarketItem(
-                      exchangeMarket: state.exchangeMarkets?[index],
-                    ),
+      buildWhen: (previous, current) =>
+          previous.exchangeMarkets != current.exchangeMarkets,
+      builder: (context, state) {
+        return state.exchangeMarkets == null
+            ? const ProgressIndicator()
+            : SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  childCount: state.exchangeMarkets?.length,
+                  (context, index) => MarketItem(
+                    exchangeMarket: state.exchangeMarkets?[index],
                   ),
-                );
-        });
+                ),
+              );
+      },
+    );
   }
 }
 
@@ -70,22 +72,27 @@ class MarketItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              exchangeMarket?.exchangeId ?? '',
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            const SizedBox(height: 8),
-            Text(exchangeMarket?.quoteSymbol ?? ''),
-            const SizedBox(height: 8),
-            Text('${exchangeMarket?.priceUsd.fixedNumber(2)} USD'),
-          ],
+    final currentLocation = GoRouter.of(context).location;
+    return InkWell(
+      onTap: () =>
+          context.push('$currentLocation/market/${exchangeMarket?.exchangeId}'),
+      child: Card(
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                exchangeMarket?.exchangeId ?? '',
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const SizedBox(height: 8),
+              Text(exchangeMarket?.quoteSymbol ?? ''),
+              const SizedBox(height: 8),
+              Text('${exchangeMarket?.priceUsd.fixedNumber(2)} USD'),
+            ],
+          ),
         ),
       ),
     );
