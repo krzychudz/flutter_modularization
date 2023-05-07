@@ -1,5 +1,8 @@
 import 'package:chopper/chopper.dart';
 import 'package:flutter_modularization/data/models/all_currencies_response/all_currencies_response.dart';
+import 'package:flutter_modularization/data/models/currency_response/currency_response.dart';
+import 'package:flutter_modularization/data/models/exchange_markets_response/exchange_market_response.dart';
+import 'package:flutter_modularization/data/models/price_history_response/price_history_response.dart';
 import 'package:injectable/injectable.dart';
 
 import 'converters/json_type_converter.dart';
@@ -18,6 +21,11 @@ abstract class ApiClientModule {
           {
             AllCurrenciesResponse: (jsonData) =>
                 AllCurrenciesResponse.fromJson(jsonData),
+            CurrencyResponse: (jsonData) => CurrencyResponse.fromJson(jsonData),
+            PriceHistoryResponse: (jsonData) =>
+                PriceHistoryResponse.fromJson(jsonData),
+            ExchangeMarketResponse: (jsonData) =>
+                ExchangeMarketResponse.fromJson(jsonData)
           },
         ),
         errorConverter: const JsonConverter(),

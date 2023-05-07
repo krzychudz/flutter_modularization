@@ -4,6 +4,7 @@ import 'package:flutter_modularization/core-data/extension/string_number.dart';
 import "package:flutter_modularization/data/models/currency/currency.dart";
 import "package:flutter_modularization/feature-dashboard/dashboard_screen/bloc/dashboard_screen_cubit.dart";
 import "package:flutter_modularization/feature-dashboard/dashboard_screen/bloc/dashboard_screen_state.dart";
+import "package:go_router/go_router.dart";
 
 class DashboardView extends StatelessWidget {
   const DashboardView({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class DashboardView extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Currencies"),
       ),
-      body: DashboardViewBody(),
+      body: const DashboardViewBody(),
     );
   }
 }
@@ -52,20 +53,42 @@ class CurrenciesList extends StatelessWidget {
         itemCount: data.length,
         itemBuilder: (context, index) {
           final currentCurrency = data[index];
-          return Card(
-            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  SymbolName(symbol: currentCurrency.symbol ?? 'X'),
-                  const SizedBox(width: 16),
-                  InfoSection(currentCurrency: currentCurrency),
-                ],
-              ),
-            ),
+          return CurrencyItem(
+            currentCurrency: currentCurrency,
+            onTap: (currencyId) => context.push('/details/$currencyId'),
           );
         });
+  }
+}
+
+class CurrencyItem extends StatelessWidget {
+  const CurrencyItem({
+    super.key,
+    required this.currentCurrency,
+    this.onTap,
+  });
+
+  final Currency currentCurrency;
+  final Function(String currencyId)? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: InkWell(
+        onTap: () => onTap?.call(currentCurrency.id),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              SymbolName(symbol: currentCurrency.symbol ?? 'X'),
+              const SizedBox(width: 16),
+              InfoSection(currentCurrency: currentCurrency),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
 

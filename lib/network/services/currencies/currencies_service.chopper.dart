@@ -26,4 +26,39 @@ class _$CurrencyService extends CurrencyService {
     );
     return client.send<AllCurrenciesResponse, AllCurrenciesResponse>($request);
   }
+
+  @override
+  Future<Response<CurrencyResponse>> getCurrency(String currencyId) {
+    final Uri $url = Uri.parse('/assets/${currencyId}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<CurrencyResponse, CurrencyResponse>($request);
+  }
+
+  @override
+  Future<Response<PriceHistoryResponse>> getPriceHistory(String currencyId) {
+    final Uri $url = Uri.parse('/assets/${currencyId}/history?interval=m15');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<PriceHistoryResponse, PriceHistoryResponse>($request);
+  }
+
+  @override
+  Future<Response<ExchangeMarketResponse>> getExchangeMarkets(
+      String currencyId) {
+    final Uri $url = Uri.parse('/assets/${currencyId}/markets');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+    return client
+        .send<ExchangeMarketResponse, ExchangeMarketResponse>($request);
+  }
 }
