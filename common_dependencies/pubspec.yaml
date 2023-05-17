@@ -1,18 +1,14 @@
-name: flutter_modularization
-description: A new Flutter project.
-publish_to: 'none'
+name: common_dependencies
+description: A new Flutter module project.
 version: 1.0.0+1
+publish_to: none
 
 environment:
-  sdk: '>=2.19.4 <3.0.0'
+  sdk: '>=2.19.6 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-
-  feature_dashboard:
-    path: feature_dashboard
-
   cupertino_icons: ^1.0.2
   injectable: ^2.1.1
   get_it: ^7.2.0
@@ -31,8 +27,11 @@ dev_dependencies:
   injectable_generator: ^2.1.5 
   chopper_generator: ^6.0.0
   json_serializable: ^6.6.1
+
 flutter:
   uses-material-design: true
 
-  assets:
-    - .env
+  module:
+    androidX: true
+    androidPackage: com.example.common_dependencies
+    iosBundleIdentifier: com.example.commonDependencies

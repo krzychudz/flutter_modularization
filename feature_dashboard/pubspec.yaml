@@ -1,0 +1,32 @@
+name: feature_dashboard
+description: A new Flutter module project.
+publish_to: none
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.6 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  common_dependencies:
+    path: '../common_dependencies'
+  core_data:
+    path: '../core_data'
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  build_runner: ^2.3.3
+  injectable_generator: ^2.1.5 
+
+flutter:
+  uses-material-design: true
+
+  module:
+    androidX: true
+    androidPackage: com.example.feature_dashboard
+    iosBundleIdentifier: com.example.featureDashboard
