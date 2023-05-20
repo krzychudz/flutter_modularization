@@ -1,4 +1,4 @@
-name: feature_currency_details
+name: core_navigation
 description: A new Flutter module project.
 publish_to: none
 
@@ -10,14 +10,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  core_navigation:
-    path: '../core_navigation'
+  go_router: ^6.5.2
 
   common_dependencies:
     path: '../common_dependencies'
-  core_data:
-    path: '../core_data'
 
 dev_dependencies:
   flutter_test:
@@ -29,8 +25,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-
   module:
     androidX: true
-    androidPackage: com.example.feature_currency_details
-    iosBundleIdentifier: com.example.featureCurrencyDetails
+    androidPackage: com.example.core_navigation
+    iosBundleIdentifier: com.example.coreNavigation
