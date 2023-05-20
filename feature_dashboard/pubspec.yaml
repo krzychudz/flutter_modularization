@@ -15,6 +15,8 @@ dependencies:
     path: '../common_dependencies'
   core_data:
     path: '../core_data'
+  core_navigation:
+    path: '../core_navigation'
 
 dev_dependencies:
   flutter_test:
