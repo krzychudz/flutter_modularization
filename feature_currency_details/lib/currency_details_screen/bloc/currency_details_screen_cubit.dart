@@ -1,9 +1,9 @@
+import 'package:core_data/extension/cast.dart';
+import 'package:core_data/models/currency/currency.dart';
+import 'package:core_data/models/exchange_market/exchange_market.dart';
+import 'package:core_data/models/price_history/price_history.dart';
+import 'package:core_data/repositories/currency_repository/currency_repository_interface.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_modularization/core-data/extension/cast.dart';
-import 'package:flutter_modularization/core-data/repositories/currency_repository/currency_repository_interface.dart';
-import 'package:flutter_modularization/data/models/currency/currency.dart';
-import 'package:flutter_modularization/data/models/exchange_market/exchange_market.dart';
-import 'package:flutter_modularization/data/models/price_history/price_history.dart';
 import 'package:injectable/injectable.dart';
 import 'currency_details_screen_state.dart';
 

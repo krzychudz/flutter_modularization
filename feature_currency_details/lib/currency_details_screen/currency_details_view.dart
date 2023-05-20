@@ -1,9 +1,9 @@
+import "package:core_data/extension/string_number.dart";
+import "package:core_data/models/exchange_market/exchange_market.dart";
+import "package:feature_currency_details/currency_details_screen/bloc/currency_details_screen_cubit.dart";
+import "package:feature_currency_details/currency_details_screen/bloc/currency_details_screen_state.dart";
 import "package:flutter/material.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
-import "package:flutter_modularization/core-data/extension/string_number.dart";
-import "package:flutter_modularization/data/models/exchange_market/exchange_market.dart";
-import "package:flutter_modularization/feature-currency-details/currency_details_screen/bloc/currency_details_screen_cubit.dart";
-import "package:flutter_modularization/feature-currency-details/currency_details_screen/bloc/currency_details_screen_state.dart";
 import "package:go_router/go_router.dart";
 
 class CurrencyDetailsView extends StatelessWidget {

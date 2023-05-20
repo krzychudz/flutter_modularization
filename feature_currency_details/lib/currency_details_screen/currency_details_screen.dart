@@ -1,7 +1,7 @@
+import "package:core_data/repositories/currency_repository/currency_repository_interface.dart";
+import "package:feature_currency_details/di.dart";
 import "package:flutter/material.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
-import "package:flutter_modularization/core-data/repositories/currency_repository/currency_repository_interface.dart";
-import "package:flutter_modularization/di/injectable/injectable.dart";
 import "./currency_details_view.dart";
 import './bloc/currency_details_screen_cubit.dart';
 
