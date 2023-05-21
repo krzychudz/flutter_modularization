@@ -1,18 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modularization/di/injectable/injectable.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_modularization/router.dart';
-import 'package:flutter_web_plugins/url_strategy.dart';
+import 'package:flutter_modularization/app_initialization.dart';
+import 'package:go_router/go_router.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
-  configureDependencies();
-  usePathUrlStrategy();
-  runApp(const MyApp());
+
+  initializeModuleDependencies(modules);
+  final router = initializeRouter(modules);
+
+  runApp(MyApp(
+    router: router,
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({
+    super.key,
+    required this.router,
+  });
+
+  final GoRouter router;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(

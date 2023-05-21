@@ -3,5 +3,8 @@
         "coincap",
         "dotenv",
         "vwap"
-    ]
+    ],
+    "files.exclude": {
+        "**/.bricks": true
+    }
 }

@@ -9,7 +9,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
+
+  feature_dashboard:
+    path: 'feature_dashboard'
+    
+  feature_currency_details:
+    path: 'feature_currency_details'
+
+  core_module:
+    path: 'core_module'
+
   injectable: ^2.1.1
   get_it: ^7.2.0
   go_router: ^6.5.2
