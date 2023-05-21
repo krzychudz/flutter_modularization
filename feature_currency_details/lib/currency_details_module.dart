@@ -1,4 +1,4 @@
-import 'package:core_navigation/module/module.dart';
+import 'package:core_module/module.dart';
 import 'package:feature_currency_details/currency_details_screen/currency_details_screen.dart';
 import 'package:feature_currency_details/di.dart';
 import 'package:feature_currency_details/market_details_screen/market_details_screen.dart';

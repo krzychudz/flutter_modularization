@@ -1,4 +1,4 @@
-name: core_navigation
+name: core_module
 description: A new Flutter module project.
 publish_to: none
 
@@ -10,22 +10,20 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  go_router: ^6.5.2
 
   common_dependencies:
     path: '../common_dependencies'
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
-  build_runner: ^2.3.3
-  injectable_generator: ^2.1.5 
 
 
 flutter:
   uses-material-design: true
   module:
     androidX: true
-    androidPackage: com.example.core_navigation
-    iosBundleIdentifier: com.example.coreNavigation
+    androidPackage: com.example.core_module
+    iosBundleIdentifier: com.example.coreModule

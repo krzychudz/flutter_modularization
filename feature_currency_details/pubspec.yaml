@@ -11,8 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  core_navigation:
-    path: '../core_navigation'
+  core_module:
+    path: '../core_module'
 
   common_dependencies:
     path: '../common_dependencies'

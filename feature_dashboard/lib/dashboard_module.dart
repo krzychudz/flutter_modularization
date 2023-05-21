@@ -1,4 +1,4 @@
-import 'package:core_navigation/module/module.dart';
+import 'package:core_module/module.dart';
 import 'package:feature_dashboard/dashboard_screen/dashboard_screen.dart';
 import 'package:feature_dashboard/di.dart';
 import 'package:go_router/src/route.dart';

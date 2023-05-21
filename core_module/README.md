@@ -1,4 +1,4 @@
-# core_navigation
+# core_module
 
 A new Flutter module project.
 
