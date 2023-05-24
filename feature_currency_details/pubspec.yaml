@@ -11,11 +11,12 @@ dependencies:
   flutter:
     sdk: flutter
 
+  common_dependencies:
+    path: '../common_dependencies'
+
   core_module:
     path: '../core_module'
 
-  common_dependencies:
-    path: '../common_dependencies'
   core_data:
     path: '../core_data'
 
