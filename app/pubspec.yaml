@@ -1,0 +1,34 @@
+name: app
+description: A new Flutter project.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  common_dependencies:
+    path: '../common_dependencies'
+
+  feature_dashboard:
+    path: '../feature_dashboard'
+
+  feature_currency_details:
+    path: '../feature_currency_details'
+  
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+flutter:
+  uses-material-design: true
+
+  assets:
+    - .env
