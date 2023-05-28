@@ -12,19 +12,23 @@ dependencies:
     sdk: flutter
 
   common_dependencies:
-    path: '../common_dependencies'
+    path: '../core/common_dependencies'
+
+  core_module:
+    path: '../core/core_module'
 
   feature_dashboard:
-    path: '../feature_dashboard'
+    path: '../features/feature_dashboard'
 
   feature_currency_details:
-    path: '../feature_currency_details'
+    path: '../features/feature_currency_details'
   
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: ^2.3.3
 
   flutter_lints: ^2.0.0
 flutter:

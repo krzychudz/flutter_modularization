@@ -12,13 +12,9 @@ dependencies:
     sdk: flutter
 
   common_dependencies:
-    path: '../common_dependencies'
-
   core_module:
-    path: '../core_module'
-
   core_data:
-    path: '../core_data'
+
 
 dev_dependencies:
   flutter_test:

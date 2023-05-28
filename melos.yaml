@@ -1,0 +1,16 @@
+name: modularization_workspace
+
+packages:
+  - app
+  - features/**
+  - core/**
+
+scripts:
+  analyze:
+    exec: dart analyze .
+  
+  build_runner:
+    exec: dart run build_runner build --delete-conflicting-outputs
+
+  get_dependencies:
+    exec: flutter pub get
